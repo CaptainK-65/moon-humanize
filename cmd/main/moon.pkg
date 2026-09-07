@@ -1,0 +1,5 @@
+// import {
+//   "moon-humanize/moon-humanize" @lib,
+// }
+
+pkgtype(kind: "executable")
