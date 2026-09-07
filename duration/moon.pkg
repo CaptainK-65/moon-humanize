@@ -1,0 +1,4 @@
+import {
+  "moon-humanize/moon-humanize/common" @common
+}
+
