@@ -40,7 +40,13 @@ pub fn humanize_relative(timestamp_ms : Int64, now_ms : Int64, lang : @common.La
     let value = seconds / 86400L
     match lang {
       @common.Language::Zh => "\{value}天\{suffix_zh}"
-      @common.Language::En => if future { "in \{value} days" } else { "\{value} days ago" }
+      @common.Language::En => if future {
+        if value == 1L { "in 1 day" } else { "in \{value} days" }
+      } else if value == 1L {
+        "1 day ago"
+      } else {
+        "\{value} days ago"
+      }
     }
   } else if seconds < 46L * 86400L {
     match lang {
@@ -51,7 +57,13 @@ pub fn humanize_relative(timestamp_ms : Int64, now_ms : Int64, lang : @common.La
     let value = seconds / (30L * 86400L)
     match lang {
       @common.Language::Zh => "\{value}个月\{suffix_zh}"
-      @common.Language::En => if future { "in \{value} months" } else { "\{value} months ago" }
+      @common.Language::En => if future {
+        if value == 1L { "in a month" } else { "in \{value} months" }
+      } else if value == 1L {
+        "a month ago"
+      } else {
+        "\{value} months ago"
+      }
     }
   } else if seconds < 548L * 86400L {
     match lang {
@@ -62,7 +74,13 @@ pub fn humanize_relative(timestamp_ms : Int64, now_ms : Int64, lang : @common.La
     let value = seconds / 31536000L
     match lang {
       @common.Language::Zh => if future { "\{value}年后" } else { "\{value}年前" }
-      @common.Language::En => if future { "in \{value} years" } else { "\{value} years ago" }
+      @common.Language::En => if future {
+        if value == 1L { "in a year" } else { "in \{value} years" }
+      } else if value == 1L {
+        "a year ago"
+      } else {
+        "\{value} years ago"
+      }
     }
   }
 }
