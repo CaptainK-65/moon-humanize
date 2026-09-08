@@ -1,0 +1,17 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moon-humanize/moon-humanize/common"
+
+// Values
+pub fn abs_i64(Int64) -> Int64
+
+// Errors
+
+// Types and methods
+pub(all) enum Language {
+  Zh
+  En
+}
+
+// Type aliases
+
+// Traits

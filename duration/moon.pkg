@@ -1,4 +1,3 @@
 import {
-  "moon-humanize/moon-humanize/common" @common
+  "moon-humanize/moon-humanize/common",
 }
-

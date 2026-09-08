@@ -1,3 +1,4 @@
+///|
 test "bytes boundary and precision cases" {
   let cases = [
     (0L, "0 B"),

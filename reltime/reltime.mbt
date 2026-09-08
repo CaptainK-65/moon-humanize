@@ -1,5 +1,9 @@
-///| 
-pub fn humanize_relative(timestamp_ms : Int64, now_ms : Int64, lang : @common.Language) -> String {
+///|
+pub fn humanize_relative(
+  timestamp_ms : Int64,
+  now_ms : Int64,
+  lang : @common.Language,
+) -> String {
   let delta = now_ms - timestamp_ms
   let future = delta < 0L
   let seconds = @common.abs_i64(delta) / 1000L
@@ -12,13 +16,23 @@ pub fn humanize_relative(timestamp_ms : Int64, now_ms : Int64, lang : @common.La
   } else if seconds < 90L {
     match lang {
       @common.Language::Zh => "1分钟\{suffix_zh}"
-      @common.Language::En => if future { "in a minute" } else { "a minute ago" }
+      @common.Language::En =>
+        if future {
+          "in a minute"
+        } else {
+          "a minute ago"
+        }
     }
   } else if seconds < 45L * 60L {
     let value = seconds / 60L
     match lang {
       @common.Language::Zh => "\{value}分钟\{suffix_zh}"
-      @common.Language::En => if future { "in \{value} minutes" } else { "\{value} minutes ago" }
+      @common.Language::En =>
+        if future {
+          "in \{value} minutes"
+        } else {
+          "\{value} minutes ago"
+        }
     }
   } else if seconds < 90L * 60L {
     match lang {
@@ -29,7 +43,12 @@ pub fn humanize_relative(timestamp_ms : Int64, now_ms : Int64, lang : @common.La
     let value = seconds / 3600L
     match lang {
       @common.Language::Zh => "\{value}小时\{suffix_zh}"
-      @common.Language::En => if future { "in \{value} hours" } else { "\{value} hours ago" }
+      @common.Language::En =>
+        if future {
+          "in \{value} hours"
+        } else {
+          "\{value} hours ago"
+        }
     }
   } else if seconds < 36L * 3600L {
     match lang {
@@ -40,13 +59,18 @@ pub fn humanize_relative(timestamp_ms : Int64, now_ms : Int64, lang : @common.La
     let value = seconds / 86400L
     match lang {
       @common.Language::Zh => "\{value}天\{suffix_zh}"
-      @common.Language::En => if future {
-        if value == 1L { "in 1 day" } else { "in \{value} days" }
-      } else if value == 1L {
-        "1 day ago"
-      } else {
-        "\{value} days ago"
-      }
+      @common.Language::En =>
+        if future {
+          if value == 1L {
+            "in 1 day"
+          } else {
+            "in \{value} days"
+          }
+        } else if value == 1L {
+          "1 day ago"
+        } else {
+          "\{value} days ago"
+        }
     }
   } else if seconds < 46L * 86400L {
     match lang {
@@ -57,13 +81,18 @@ pub fn humanize_relative(timestamp_ms : Int64, now_ms : Int64, lang : @common.La
     let value = seconds / (30L * 86400L)
     match lang {
       @common.Language::Zh => "\{value}个月\{suffix_zh}"
-      @common.Language::En => if future {
-        if value == 1L { "in a month" } else { "in \{value} months" }
-      } else if value == 1L {
-        "a month ago"
-      } else {
-        "\{value} months ago"
-      }
+      @common.Language::En =>
+        if future {
+          if value == 1L {
+            "in a month"
+          } else {
+            "in \{value} months"
+          }
+        } else if value == 1L {
+          "a month ago"
+        } else {
+          "\{value} months ago"
+        }
     }
   } else if seconds < 548L * 86400L {
     match lang {
@@ -73,14 +102,24 @@ pub fn humanize_relative(timestamp_ms : Int64, now_ms : Int64, lang : @common.La
   } else {
     let value = seconds / 31536000L
     match lang {
-      @common.Language::Zh => if future { "\{value}年后" } else { "\{value}年前" }
-      @common.Language::En => if future {
-        if value == 1L { "in a year" } else { "in \{value} years" }
-      } else if value == 1L {
-        "a year ago"
-      } else {
-        "\{value} years ago"
-      }
+      @common.Language::Zh =>
+        if future {
+          "\{value}年后"
+        } else {
+          "\{value}年前"
+        }
+      @common.Language::En =>
+        if future {
+          if value == 1L {
+            "in a year"
+          } else {
+            "in \{value} years"
+          }
+        } else if value == 1L {
+          "a year ago"
+        } else {
+          "\{value} years ago"
+        }
     }
   }
 }

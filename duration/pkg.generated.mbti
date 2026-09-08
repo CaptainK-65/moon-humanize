@@ -1,0 +1,17 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moon-humanize/moon-humanize/duration"
+
+import {
+  "moon-humanize/moon-humanize/common",
+}
+
+// Values
+pub fn humanize_duration(Int64, @common.Language) -> String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

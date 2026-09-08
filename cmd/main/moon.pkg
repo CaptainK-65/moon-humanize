@@ -1,8 +1,8 @@
 import {
-  "moon-humanize/moon-humanize/common" @common,
-  "moon-humanize/moon-humanize/duration" @duration,
-  "moon-humanize/moon-humanize/bytes" @bytes,
-  "moon-humanize/moon-humanize/reltime" @reltime,
+  "moon-humanize/moon-humanize/common",
+  "moon-humanize/moon-humanize/duration",
+  "moon-humanize/moon-humanize/bytes",
+  "moon-humanize/moon-humanize/reltime",
 }
 
 pkgtype(kind: "executable")

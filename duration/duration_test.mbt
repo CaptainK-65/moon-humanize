@@ -1,3 +1,4 @@
+///|
 test "duration data driven cases" {
   let cases = [
     (0L, @common.Language::Zh, "0秒"),

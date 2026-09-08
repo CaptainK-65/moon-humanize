@@ -1,11 +1,15 @@
-///| 
+///|
 fn decimal_tenth(value : Int64) -> String {
   let whole = value / 10L
   let tenth = value % 10L
-  if tenth == 0L { "\{whole}" } else { "\{whole}.\{tenth}" }
+  if tenth == 0L {
+    "\{whole}"
+  } else {
+    "\{whole}.\{tenth}"
+  }
 }
 
-///| 
+///|
 pub fn humanize_bytes(bytes : Int64) -> String {
   let value = @common.abs_i64(bytes)
   if value < 1024L {

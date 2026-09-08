@@ -1,0 +1,17 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moon-humanize/moon-humanize/reltime"
+
+import {
+  "moon-humanize/moon-humanize/common",
+}
+
+// Values
+pub fn humanize_relative(Int64, Int64, @common.Language) -> String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
