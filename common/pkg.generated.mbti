@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moon-humanize/moon-humanize/common"
+package "CaptainK-65/moon-humanize/common"
 
 // Values
 pub fn abs_i64(Int64) -> Int64

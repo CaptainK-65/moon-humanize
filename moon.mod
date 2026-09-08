@@ -9,13 +9,13 @@
 //   "moonbitlang/x@0.4.6",
 // }
 
-name = "moon-humanize/moon-humanize"
+name = "CaptainK-65/moon-humanize"
 
 version = "0.1.0"
 
 readme = "README.md"
 
-repository = ""
+repository = "https://github.com/CaptainK-65/moon-humanize"
 
 license = "MIT"
 

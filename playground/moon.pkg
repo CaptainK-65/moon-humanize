@@ -1,8 +1,8 @@
 import {
-  "moon-humanize/moon-humanize/common",
-  "moon-humanize/moon-humanize/duration",
-  "moon-humanize/moon-humanize/bytes",
-  "moon-humanize/moon-humanize/reltime",
+  "CaptainK-65/moon-humanize/common",
+  "CaptainK-65/moon-humanize/duration",
+  "CaptainK-65/moon-humanize/bytes",
+  "CaptainK-65/moon-humanize/reltime",
 }
 
 pkgtype(kind: "foreign_library")

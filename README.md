@@ -17,19 +17,19 @@
 注册 Mooncakes 后，将模块前缀替换为发布者名称，然后执行：
 
 ```bash
-moon add moon-humanize/moon-humanize
+moon add CaptainK-65/moon-humanize
 ```
 
-当前仓库模块名为 `moon-humanize/moon-humanize`，用于黑客松验收和本地开发。
+当前仓库模块名为 `CaptainK-65/moon-humanize`，用于黑客松验收和本地开发。
 
 ## 快速上手
 
 ```moonbit
 import {
-  "moon-humanize/moon-humanize/common" @common,
-  "moon-humanize/moon-humanize/duration" @duration,
-  "moon-humanize/moon-humanize/bytes" @bytes,
-  "moon-humanize/moon-humanize/reltime" @reltime,
+  "CaptainK-65/moon-humanize/common" @common,
+  "CaptainK-65/moon-humanize/duration" @duration,
+  "CaptainK-65/moon-humanize/bytes" @bytes,
+  "CaptainK-65/moon-humanize/reltime" @reltime,
 }
 
 let duration = @duration.humanize_duration(3661000L, @common.Language::Zh)

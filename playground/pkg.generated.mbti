@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moon-humanize/moon-humanize/playground"
+package "CaptainK-65/moon-humanize/playground"
 
 // Values
 pub fn bytes_format(Int64) -> String
