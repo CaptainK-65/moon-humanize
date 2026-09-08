@@ -1,0 +1,21 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moon-humanize/moon-humanize/playground"
+
+// Values
+pub fn bytes_format(Int64) -> String
+
+pub fn duration_en(Int64) -> String
+
+pub fn duration_zh(Int64) -> String
+
+pub fn relative_en(Int64, Int64) -> String
+
+pub fn relative_zh(Int64, Int64) -> String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

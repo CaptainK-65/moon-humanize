@@ -1,0 +1,33 @@
+import {
+  "moon-humanize/moon-humanize/common",
+  "moon-humanize/moon-humanize/duration",
+  "moon-humanize/moon-humanize/bytes",
+  "moon-humanize/moon-humanize/reltime",
+}
+
+pkgtype(kind: "foreign_library")
+
+options(
+  link: {
+    "js": {
+      "exports": [
+        "duration_zh",
+        "duration_en",
+        "bytes_format",
+        "relative_zh",
+        "relative_en",
+      ],
+      "format": "esm",
+    },
+    "wasm-gc": {
+      "exports": [
+        "duration_zh",
+        "duration_en",
+        "bytes_format",
+        "relative_zh",
+        "relative_en",
+      ],
+      "use-js-builtin-string": true,
+    },
+  },
+)
