@@ -13,12 +13,28 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - uses: moonbitlang/setup-moonbit@v1
+
+      - name: Install MoonBit (Unix)
+        if: runner.os != 'Windows'
+        run: |
+          curl -fsSL https://cli.moonbitlang.cn/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> $GITHUB_PATH
+
+      - name: Install MoonBit (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          irm https://cli.moonbitlang.cn/install/powershell.ps1 | iex
+          echo "$env:USERPROFILE\.moon\bin" | Out-File -Append $env:GITHUB_PATH
+
       - name: Check
         run: moon check
+
       - name: Test all targets
         run: moon test --target all
+
       - name: Format check
         run: moon fmt --check
+
       - name: Generate package interfaces
         run: moon info
