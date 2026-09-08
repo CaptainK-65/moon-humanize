@@ -13,14 +13,14 @@ name = "moon-humanize/moon-humanize"
 
 version = "0.1.0"
 
-readme = "README.mbt.md"
+readme = "README.md"
 
 repository = ""
 
-license = "Apache-2.0"
+license = "MIT"
 
-keywords = []
+keywords = [ "humanize", "formatting", "i18n" ]
 
-preferred_target = "wasm"
+preferred_target = "native"
 
-description = ""
+description = "双语人性化数据格式化库：时长、字节与相对时间"
