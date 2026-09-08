@@ -1,0 +1,24 @@
+name: MoonBit checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: moonbitlang/setup-moonbit@v1
+      - name: Check
+        run: moon check
+      - name: Test all targets
+        run: moon test --target all
+      - name: Format check
+        run: moon fmt --check
+      - name: Generate package interfaces
+        run: moon info
