@@ -20,7 +20,7 @@
 moon add CaptainK-65/moon-humanize
 ```
 
-当前仓库模块名为 `CaptainK-65/moon-humanize`，用于黑客松验收和本地开发。
+当前仓库模块名为 `CaptainK-65/moon-humanize`，用于本地开发。
 
 ## 快速上手
 
