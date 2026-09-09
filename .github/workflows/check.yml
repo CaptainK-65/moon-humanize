@@ -18,23 +18,51 @@ jobs:
         if: runner.os != 'Windows'
         run: |
           curl -fsSL https://cli.moonbitlang.cn/install/unix.sh | bash
-          echo "$HOME/.moon/bin" >> $GITHUB_PATH
+          ls -la "$HOME/.moon/bin" || echo "moon bin not found"
 
       - name: Install MoonBit (Windows)
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
           irm https://cli.moonbitlang.cn/install/powershell.ps1 | iex
-          echo "$env:USERPROFILE\.moon\bin" | Out-File -Append $env:GITHUB_PATH
+          Get-ChildItem "$env:USERPROFILE\.moon\bin" | Select-Object Name
 
       - name: Check
-        run: moon check
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            MOON="$USERPROFILE/.moon/bin/moon.exe"
+          else
+            MOON="$HOME/.moon/bin/moon"
+          fi
+          "$MOON" check
 
       - name: Test all targets
-        run: moon test --target all
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            MOON="$USERPROFILE/.moon/bin/moon.exe"
+          else
+            MOON="$HOME/.moon/bin/moon"
+          fi
+          "$MOON" test --target all
 
       - name: Format check
-        run: moon fmt --check
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            MOON="$USERPROFILE/.moon/bin/moon.exe"
+          else
+            MOON="$HOME/.moon/bin/moon"
+          fi
+          "$MOON" fmt --check
 
       - name: Generate package interfaces
-        run: moon info
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            MOON="$USERPROFILE/.moon/bin/moon.exe"
+          else
+            MOON="$HOME/.moon/bin/moon"
+          fi
+          "$MOON" info
